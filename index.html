@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Email List</title>
 
-    <!-- <link rel="shortcut icon" href="#"> -->
+    <link rel="shortcut icon" href="#">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <div id="app">
-        <ul>
-            <li v-for="message in emails">
+        <button @click="generateMails()">Genera indirizzi</button>
+        <button @click="showMails()">Mostra indirizzi</button>
+        <ol>
+            <li v-for="message in emails" v-if="show == true">
                 {{message}}
             </li>
-        </ul>
+        </ol>
 
     </div>
     

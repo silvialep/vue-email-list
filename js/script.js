@@ -19,29 +19,49 @@ createApp({
         return {
             message: '',
             emails: [],
-
+            show: false,
         }
     },
 
-    
-
-
-    created() {
-        for(i = 0; i < 10; i++) {
-            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
-            console.log(res.data.response);
-            this.message = res.data.response;
-            if(this.emails.includes(this.message)) {
+    methods: {
+        generateMails() {
+            for (i = 0; i < 10; i++) {
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
+                    console.log(res.data.response);
                     this.message = res.data.response;
-                }) 
-                } else {
-                    this.emails.push(this.message);
-                }
-            })
-        
-        }
+                    if (this.emails.includes(this.message)) {
+                        axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
+                            this.message = res.data.response;
+                        })
+                    } else {
+                        this.emails.push(this.message);
+                    }
+                })
+            }
+        },
+
+        showMails() {
+            this.show = !this.show;
+        },
     },
+
+
+    // created() {
+    //     for(i = 0; i < 10; i++) {
+    //         axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
+    //         console.log(res.data.response);
+    //         this.message = res.data.response;
+    //         if(this.emails.includes(this.message)) {
+    //             axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
+    //                 this.message = res.data.response;
+    //             }) 
+    //             } else {
+    //                 this.emails.push(this.message);
+    //             }
+    //         })
+        
+    //     }
+    // },
 
 
 }).mount('#app')
