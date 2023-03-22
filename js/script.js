@@ -38,11 +38,18 @@ createApp({
                     }
                 })
             }
+            
+            
+
         },
 
-        showMails() {
-            this.show = !this.show;
-        },
+        // showMails() {
+        //     if (this.emails.length == 10) {
+        //         this.show = !this.show;
+        //     }
+        //     console.log(this.show);
+        //     // this.show = !this.show;
+        // },
     },
 
 

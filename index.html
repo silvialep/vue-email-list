@@ -14,9 +14,9 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <div id="app">
         <button @click="generateMails()">Genera indirizzi</button>
-        <button @click="showMails()">Mostra indirizzi</button>
+        <!-- <button @click="showMails()">Mostra indirizzi</button> -->
         <ol>
-            <li v-for="message in emails" v-if="show == true">
+            <li v-for="message in emails" v-if="emails.length == 10">
                 {{message}}
             </li>
         </ol>
